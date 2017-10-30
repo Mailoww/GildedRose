@@ -49,7 +49,7 @@ public class Product {
         item.quality++;
     }
 
-    public boolean hasQualityStrictlyBelow50() {
+    public boolean hasQualityStrictlyUnder50() {
         return item.quality < 50;
     }
 
@@ -59,5 +59,9 @@ public class Product {
 
     public void makeQualityAtZero() {
         item.quality = 0;
+    }
+
+    public boolean hasSellBetween(int min, int max) {
+        return item.sellIn > min && item.sellIn < max;
     }
 }

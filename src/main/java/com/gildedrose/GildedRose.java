@@ -26,24 +26,17 @@ class GildedRose {
                 qualityUpdater.process();
 
 
+            } else if(product.isBackstagePasses()){
+                QualityUpdater qualityUpdater = new QualityUpdaterBackStagePassesProduct(product);
+                qualityUpdater.process();
+
             } else {
 
-                if (product.hasQualityStrictlyPositive() && product.hasQualityStrictlyBelow50()) {
+
+
+                if (!product.isBackstagePasses()
+                        && product.hasQualityStrictlyPositive() && product.hasQualityStrictlyUnder50()) {
                         product.incrementQuality();
-
-                        if (product.isBackstagePasses()) {
-                            if (product.hasSellInUnder(11)) {
-                                if (product.hasQualityStrictlyBelow50()) {
-                                    product.incrementQuality();
-                                }
-                            }
-
-                            if (product.hasSellInUnder(6)) {
-                                if (product.hasQualityStrictlyBelow50()) {
-                                    product.incrementQuality();
-                                }
-                            }
-                        }
                 }
 
                 if (product.hasSellInUnder(0)) {
@@ -58,7 +51,7 @@ class GildedRose {
                             product.makeQualityAtZero();
                         }
                     } else {
-                        if (product.hasQualityStrictlyBelow50()) {
+                        if (product.hasQualityStrictlyUnder50()) {
                             product.incrementQuality();
                         }
                     }
