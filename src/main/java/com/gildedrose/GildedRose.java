@@ -21,42 +21,21 @@ class GildedRose {
 
             product.decrementDay();
 
+            QualityUpdater qualityUpdater = new QualityUpdaterSulfuraProduct();
+
             if(product.isNormalProduct()){
-                QualityUpdater qualityUpdater = new QualityUpdaterNormalProduct(product);
-                qualityUpdater.process();
-
-
-            } else if(product.isBackstagePasses()){
-                QualityUpdater qualityUpdater = new QualityUpdaterBackStagePassesProduct(product);
-                qualityUpdater.process();
-
-            } else {
-
-
-
-                if (!product.isBackstagePasses()
-                        && product.hasQualityStrictlyPositive() && product.hasQualityStrictlyUnder50()) {
-                        product.incrementQuality();
-                }
-
-                if (product.hasSellInUnder(0)) {
-                    if (!product.isAgedBrie()) {
-                        if (!product.isBackstagePasses()) {
-                            if (product.hasQualityStrictlyPositive()) {
-                                if (!product.isSulfuras()) {
-                                    product.decrementQuality();
-                                }
-                            }
-                        } else {
-                            product.makeQualityAtZero();
-                        }
-                    } else {
-                        if (product.hasQualityStrictlyUnder50()) {
-                            product.incrementQuality();
-                        }
-                    }
-                }
+                qualityUpdater = new QualityUpdaterNormalProduct(product);
             }
+
+            if(product.isBackstagePasses()){
+                qualityUpdater = new QualityUpdaterBackStagePassesProduct(product);
+            }
+
+            if(product.isAgedBrie()){
+                qualityUpdater = new QualityUpdaterAgedBrie(product);
+            }
+
+            qualityUpdater.process();
         }
     }
 }

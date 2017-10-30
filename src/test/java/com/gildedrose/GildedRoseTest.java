@@ -43,7 +43,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    @Parameters({"Aged Brie, 10, 10", "Backstage passes to a TAFKAL80ETC concert, 12, 10"
+    @Parameters({"Aged Brie, 0, 9", "Aged Brie, 10, 10", "Backstage passes to a TAFKAL80ETC concert, 12, 10"
             , "Backstage passes to a TAFKAL80ETC concert, 10, 9"
             , "Backstage passes to a TAFKAL80ETC concert, 5, 8"})
     public void updateQuality_should_increment_quality_when_aged_brie_or_backstage_passes_product(
