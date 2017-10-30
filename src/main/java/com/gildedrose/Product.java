@@ -53,7 +53,7 @@ public class Product {
         return item.quality < 50;
     }
 
-    public boolean hasSellInBelow(int sellIn) {
+    public boolean hasSellInUnder(int sellIn) {
         return item.sellIn < sellIn;
     }
 

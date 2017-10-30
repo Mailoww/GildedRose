@@ -5,9 +5,11 @@ import java.util.Collection;
 
 class GildedRose {
 
+    Item[] items;
     private final Collection<Product> products;
 
     public GildedRose(Item[] items) {
+        this.items = items;
         products = new ArrayList();
         for (Item item : items)
             products.add(new Product(item));
@@ -20,46 +22,45 @@ class GildedRose {
             product.decrementDay();
 
             if(product.isNormalProduct()){
-                if(product.hasQualityStrictlyPositive())
-                    product.decrementQuality();
-                if (product.isExpired() && product.hasQualityStrictlyPositive())
-                    product.decrementQuality();
-            }
+                QualityUpdater qualityUpdater = new QualityUpdaterNormalProduct(product);
+                qualityUpdater.process();
 
-            if (!product.isNormalProduct() && product.hasQualityStrictlyPositive()) {
-                if (product.hasQualityStrictlyBelow50()) {
-                    product.incrementQuality();
 
-                    if (product.isBackstagePasses()) {
-                        if (product.hasSellInBelow(11)) {
-                            if (product.hasQualityStrictlyBelow50()) {
-                                product.incrementQuality();
+            } else {
+
+                if (product.hasQualityStrictlyPositive() && product.hasQualityStrictlyBelow50()) {
+                        product.incrementQuality();
+
+                        if (product.isBackstagePasses()) {
+                            if (product.hasSellInUnder(11)) {
+                                if (product.hasQualityStrictlyBelow50()) {
+                                    product.incrementQuality();
+                                }
+                            }
+
+                            if (product.hasSellInUnder(6)) {
+                                if (product.hasQualityStrictlyBelow50()) {
+                                    product.incrementQuality();
+                                }
                             }
                         }
-
-                        if (product.hasSellInBelow(6)) {
-                            if (product.hasQualityStrictlyBelow50()) {
-                                product.incrementQuality();
-                            }
-                        }
-                    }
                 }
-            }
 
-            if (!product.isNormalProduct() && product.hasSellInBelow(0)) {
-                if (!product.isAgedBrie()) {
-                    if (!product.isBackstagePasses()) {
-                        if (product.hasQualityStrictlyPositive()) {
-                            if (!product.isSulfuras()) {
-                                product.decrementQuality();
+                if (product.hasSellInUnder(0)) {
+                    if (!product.isAgedBrie()) {
+                        if (!product.isBackstagePasses()) {
+                            if (product.hasQualityStrictlyPositive()) {
+                                if (!product.isSulfuras()) {
+                                    product.decrementQuality();
+                                }
                             }
+                        } else {
+                            product.makeQualityAtZero();
                         }
                     } else {
-                        product.makeQualityAtZero();
-                    }
-                } else {
-                    if (product.hasQualityStrictlyBelow50()) {
-                        product.incrementQuality();
+                        if (product.hasQualityStrictlyBelow50()) {
+                            product.incrementQuality();
+                        }
                     }
                 }
             }
