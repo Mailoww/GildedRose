@@ -1,20 +1,16 @@
 package com.gildedrose;
 
 public class QualityUpdaterAgedBrie implements QualityUpdater {
-    private Product product;
 
-    public QualityUpdaterAgedBrie(Product product) {
-        this.product = product;
+    public QualityUpdaterAgedBrie() {
+
     }
 
     @Override
-    public void process() {
-        if (product.hasQualityStrictlyUnder50()) {
+    public void process(Product product) {
+        if (product.hasQualityStrictlyUnder50())
             product.incrementQuality();
-        }
-
-        if (product.isExpired() && product.hasQualityStrictlyUnder50()) {
+        if (product.isExpired() && product.hasQualityStrictlyUnder50())
             product.incrementQuality();
-        }
     }
 }

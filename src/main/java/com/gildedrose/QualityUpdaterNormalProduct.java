@@ -8,8 +8,11 @@ public class QualityUpdaterNormalProduct implements QualityUpdater {
         this.product = product;
     }
 
+    public QualityUpdaterNormalProduct() {
+    }
+
     @Override
-    public void process() {
+    public void process(Product product) {
         if(product.hasQualityStrictlyPositive())
             product.decrementQuality();
         if (product.isExpired() && product.hasQualityStrictlyPositive())

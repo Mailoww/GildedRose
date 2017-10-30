@@ -3,11 +3,29 @@ package com.gildedrose;
 public class Product {
 
     private Item item;
+    private QualityUpdater qualityUpdater;
 
-    public Product(Item item) {
-
+    private Product(Item item, QualityUpdater qualityUpdater) {
         this.item = item;
+        this.qualityUpdater = qualityUpdater;
     }
+
+    public static Product ofAgedBrie(Item item) {
+        return new Product(item, new QualityUpdaterAgedBrie());
+    }
+
+    public static Product ofNormal(Item item) {
+        return new Product(item, new QualityUpdaterNormalProduct());
+    }
+
+    public static Product ofBackstagePasses(Item item) {
+        return new Product(item, new QualityUpdaterBackStagePassesProduct());
+    }
+
+    public static Product ofSulfuras(Item item) {
+        return new Product(item, new QualityUpdaterSulfurasProduct());
+    }
+
 
     public void decrementDay() {
         if (!isSulfuras()) {
@@ -15,22 +33,12 @@ public class Product {
         }
     }
 
+    public void updateQuality() {
+        qualityUpdater.process(this);
+    }
+
     boolean isExpired() {
         return item.sellIn <= 0;
-    }
-
-    boolean isNormalProduct() {
-        return !isAgedBrie()
-                && !isBackstagePasses()
-                && !isSulfuras();
-    }
-
-    boolean isAgedBrie() {
-        return item.name.equals("Aged Brie");
-    }
-
-    boolean isBackstagePasses() {
-        return item.name.equals("Backstage passes to a TAFKAL80ETC concert");
     }
 
     boolean isSulfuras() {
@@ -59,9 +67,5 @@ public class Product {
 
     public void makeQualityAtZero() {
         item.quality = 0;
-    }
-
-    public boolean hasSellBetween(int min, int max) {
-        return item.sellIn > min && item.sellIn < max;
     }
 }
