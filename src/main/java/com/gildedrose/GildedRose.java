@@ -12,10 +12,12 @@ class GildedRose {
 
             Item product = items[i];
 
+            product = decrementDay(product);
+
             if(isNormalProduct(product)){
                 if(product.quality > 0)
                     product.quality--;
-                if ((isExpired(product) || product.sellIn == 0) && product.quality > 0)
+                if (isExpired(product) && product.quality > 0)
                     product.quality--;
             }
 
@@ -39,10 +41,6 @@ class GildedRose {
                 }
             }
 
-            if (!isSulfuras(product)) {
-                product.sellIn = product.sellIn - 1;
-            }
-
             if (!isNormalProduct(product) && product.sellIn < 0) {
                 if (!isAgedBrie(product)) {
                     if (!isBackstagePasses(product)) {
@@ -63,8 +61,15 @@ class GildedRose {
         }
     }
 
+    private Item decrementDay(Item product) {
+        if (!isSulfuras(product)) {
+            product.sellIn = product.sellIn - 1;
+        }
+        return product;
+    }
+
     private boolean isExpired(Item product) {
-        return product.sellIn < 0;
+        return product.sellIn <= 0;
     }
 
     private boolean isNormalProduct(Item product) {
