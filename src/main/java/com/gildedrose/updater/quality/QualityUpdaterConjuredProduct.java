@@ -10,8 +10,12 @@ public class QualityUpdaterConjuredProduct implements QualityUpdater {
         if(product.isExpired())
             decrementNumber = 4;
         do{
-            if(product.hasQualityStrictlyPositive())
-                product.decrementQuality();
+            incrementQuality(product);
         }while(--decrementNumber > 0);
+    }
+
+    private void incrementQuality(Product product) {
+        if(product.hasQualityStrictlyPositive())
+            product.decrementQuality();
     }
 }
