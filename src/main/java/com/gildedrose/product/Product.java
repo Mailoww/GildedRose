@@ -1,6 +1,6 @@
 package com.gildedrose.product;
 
-import com.gildedrose.updater.*;
+import com.gildedrose.updater.quality.*;
 
 public class Product {
 
@@ -28,7 +28,6 @@ public class Product {
         return new Product(item, new QualityUpdaterSulfurasProduct());
     }
 
-
     public void decrementDay() {
         if (!isSulfuras()) {
             item.sellIn--;
@@ -36,7 +35,7 @@ public class Product {
     }
 
     public void updateQuality() {
-        qualityUpdater.process(this);
+        qualityUpdater.update(this);
     }
 
     public boolean isExpired() {

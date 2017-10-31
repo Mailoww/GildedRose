@@ -3,7 +3,7 @@ package com.gildedrose.product;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class ItemAdapter {
+public class ItemAdapterToProduct {
 
     private static final String SULFURAS_PRODUCT = "Sulfuras, Hand of Ragnaros";
     private static final String BACKSTAGE_PASSES_PRODUCT = "Backstage passes to a TAFKAL80ETC concert";

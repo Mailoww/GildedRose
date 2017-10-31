@@ -1,11 +1,11 @@
-package com.gildedrose.updater;
+package com.gildedrose.updater.quality;
 
 import com.gildedrose.product.Product;
 
 public class QualityUpdaterSulfurasProduct implements QualityUpdater {
 
     @Override
-    public void process(Product product) {
+    public void update(Product product) {
 
     }
 }

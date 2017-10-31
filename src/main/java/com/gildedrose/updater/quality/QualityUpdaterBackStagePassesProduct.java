@@ -1,4 +1,4 @@
-package com.gildedrose.updater;
+package com.gildedrose.updater.quality;
 
 import com.gildedrose.product.Product;
 
@@ -9,7 +9,7 @@ public class QualityUpdaterBackStagePassesProduct implements QualityUpdater {
     }
 
     @Override
-    public void process(Product product) {
+    public void update(Product product) {
         if(product.hasSellInUnder(0))
             product.makeQualityAtZero();
 

@@ -1,8 +1,8 @@
-package com.gildedrose.updater;
+package com.gildedrose.updater.quality;
 
 import com.gildedrose.product.Product;
 
 public interface QualityUpdater {
 
-    void process(Product product);
+    void update(Product product);
 }
