@@ -13,7 +13,7 @@ public class Product {
     }
 
     public static Product ofAgedBrie(Item item) {
-        return new Product(item, new QualityUpdaterAgedBrie());
+        return new Product(item, new QualityUpdaterAgedBrieProduct());
     }
 
     public static Product ofNormal(Item item) {
@@ -58,11 +58,11 @@ public class Product {
         item.quality++;
     }
 
-    public boolean hasQualityStrictlyUnder50() {
-        return item.quality < 50;
+    public boolean hasQualityStrictlyIsUnder(int number) {
+        return item.quality < number;
     }
 
-    public boolean hasSellInUnder(int sellIn) {
+    public boolean hasSellInIsUnder(int sellIn) {
         return item.sellIn < sellIn;
     }
 

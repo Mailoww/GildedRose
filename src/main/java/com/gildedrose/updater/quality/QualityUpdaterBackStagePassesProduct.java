@@ -10,14 +10,14 @@ public class QualityUpdaterBackStagePassesProduct implements QualityUpdater {
 
     @Override
     public void update(Product product) {
-        if(product.hasSellInUnder(0))
+        if(product.hasSellInIsUnder(0))
             product.makeQualityAtZero();
 
-        else if(product.hasQualityStrictlyUnder50()){
+        else if(product.hasQualityStrictlyIsUnder(50)){
             product.incrementQuality();
-            if (product.hasSellInUnder(11) && product.hasQualityStrictlyUnder50())
+            if (product.hasSellInIsUnder(11) && product.hasQualityStrictlyIsUnder(50))
                 product.incrementQuality();
-            if (product.hasSellInUnder(6) && product.hasQualityStrictlyUnder50())
+            if (product.hasSellInIsUnder(6) && product.hasQualityStrictlyIsUnder(50))
                 product.incrementQuality();
         }
     }
