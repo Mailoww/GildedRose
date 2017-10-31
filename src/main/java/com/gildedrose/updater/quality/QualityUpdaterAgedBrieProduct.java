@@ -10,9 +10,9 @@ public class QualityUpdaterAgedBrieProduct implements QualityUpdater {
 
     @Override
     public void update(Product product) {
-        if (product.hasQualityStrictlyUnder50())
+        if (product.hasQualityStrictlyIsUnder(50))
             product.incrementQuality();
-        if (product.isExpired() && product.hasQualityStrictlyUnder50())
+        if (product.isExpired() && product.hasQualityStrictlyIsUnder(50))
             product.incrementQuality();
     }
 }
