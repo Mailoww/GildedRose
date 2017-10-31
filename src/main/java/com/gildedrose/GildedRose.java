@@ -1,11 +1,14 @@
 package com.gildedrose;
 
-import java.util.ArrayList;
+import com.gildedrose.product.Item;
+import com.gildedrose.product.ItemAdapter;
+import com.gildedrose.product.Product;
+
 import java.util.Collection;
 
 class GildedRose {
 
-    Item[] items;
+    final Item[] items;
     private final Collection<Product> products;
 
     public GildedRose(Item[] items) {

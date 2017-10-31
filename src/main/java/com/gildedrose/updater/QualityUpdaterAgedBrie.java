@@ -1,4 +1,6 @@
-package com.gildedrose;
+package com.gildedrose.updater;
+
+import com.gildedrose.product.Product;
 
 public class QualityUpdaterAgedBrie implements QualityUpdater {
 

@@ -1,9 +1,11 @@
-package com.gildedrose;
+package com.gildedrose.product;
+
+import com.gildedrose.updater.*;
 
 public class Product {
 
-    private Item item;
-    private QualityUpdater qualityUpdater;
+    private final Item item;
+    private final QualityUpdater qualityUpdater;
 
     private Product(Item item, QualityUpdater qualityUpdater) {
         this.item = item;
@@ -37,11 +39,11 @@ public class Product {
         qualityUpdater.process(this);
     }
 
-    boolean isExpired() {
+    public boolean isExpired() {
         return item.sellIn <= 0;
     }
 
-    boolean isSulfuras() {
+    private boolean isSulfuras() {
         return item.name.equals("Sulfuras, Hand of Ragnaros");
     }
 

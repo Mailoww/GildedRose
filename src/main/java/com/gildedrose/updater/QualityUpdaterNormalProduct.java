@@ -1,12 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.updater;
+
+import com.gildedrose.product.Product;
 
 public class QualityUpdaterNormalProduct implements QualityUpdater {
-
-    private Product product;
-
-    public QualityUpdaterNormalProduct(Product product) {
-        this.product = product;
-    }
 
     public QualityUpdaterNormalProduct() {
     }
