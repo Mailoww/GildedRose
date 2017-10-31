@@ -13,7 +13,7 @@ public class Product {
     }
 
     public static Product ofAgedBrie(Item item) {
-        return new Product(item, new QualityUpdaterAgedBrie());
+        return new Product(item, new QualityUpdaterAgedBrieProduct());
     }
 
     public static Product ofNormal(Item item) {

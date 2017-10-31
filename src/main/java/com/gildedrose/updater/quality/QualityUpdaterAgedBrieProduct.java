@@ -2,9 +2,9 @@ package com.gildedrose.updater.quality;
 
 import com.gildedrose.product.Product;
 
-public class QualityUpdaterAgedBrie implements QualityUpdater {
+public class QualityUpdaterAgedBrieProduct implements QualityUpdater {
 
-    public QualityUpdaterAgedBrie() {
+    public QualityUpdaterAgedBrieProduct() {
 
     }
 
