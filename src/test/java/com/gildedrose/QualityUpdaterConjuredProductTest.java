@@ -24,4 +24,16 @@ public class QualityUpdaterConjuredProductTest {
         // THEN
         assertThat(item.quality).isEqualTo(4);
     }
+
+    @Test
+    public void should_decrement_quality_of_4_when_product_is_expired() throws Exception {
+        // GIVEN
+        QualityUpdater qualityUpdater = new QualityUpdaterConjuredProduct();
+        Item item =  new Item("Conjured Mana Cake", 0, 6);
+        Collection<Product> product = ItemAdapterToProduct.convertToProduct(new Item[]{item});
+        // WHEN
+        qualityUpdater.update(product.iterator().next());
+        // THEN
+        assertThat(item.quality).isEqualTo(2);
+    }
 }

@@ -11,5 +11,9 @@ public class QualityUpdaterConjuredProduct implements QualityUpdater {
             product.decrementQuality();
         if(product.hasQualityStrictlyPositive())
             product.decrementQuality();
+        if(product.isExpired() && product.hasQualityStrictlyPositive())
+            product.decrementQuality();
+        if(product.isExpired() && product.hasQualityStrictlyPositive())
+            product.decrementQuality();
     }
 }
