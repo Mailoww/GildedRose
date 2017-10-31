@@ -1,8 +1,8 @@
-package com.gildedrose;
+package com.gildedrose.product;
 
 public class Item {
 
-    public String name;
+    public final String name;
 
     public int sellIn;
 
