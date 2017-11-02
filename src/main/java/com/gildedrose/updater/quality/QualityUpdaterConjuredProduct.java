@@ -4,8 +4,8 @@ import com.gildedrose.model.Product;
 
 public class QualityUpdaterConjuredProduct implements QualityUpdater {
 
-    public static final int NUMBER_OF_DECREMENT_WHEN_NO_EXPIRED = 2;
-    public static final int NUMBER_OF_DECREMENT_WHEN_EXPIRED = 4;
+    private static final int NUMBER_OF_DECREMENT_WHEN_NO_EXPIRED = 2;
+    private static final int NUMBER_OF_DECREMENT_WHEN_EXPIRED = 4;
 
     @Override
     public void update(Product product) {

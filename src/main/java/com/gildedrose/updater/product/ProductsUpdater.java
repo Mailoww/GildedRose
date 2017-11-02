@@ -1,5 +1,5 @@
 package com.gildedrose.updater.product;
 
-interface ProductsUpdater {
+public interface ProductsUpdater {
     void update();
 }
