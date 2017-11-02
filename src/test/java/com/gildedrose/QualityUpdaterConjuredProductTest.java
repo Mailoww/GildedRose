@@ -1,8 +1,8 @@
 package com.gildedrose;
 
-import com.gildedrose.product.Item;
-import com.gildedrose.product.ItemAdapterToProduct;
-import com.gildedrose.product.Product;
+import com.gildedrose.model.Item;
+import com.gildedrose.adapter.ItemAdapterToProduct;
+import com.gildedrose.model.Product;
 import com.gildedrose.updater.quality.QualityUpdaterConjuredProduct;
 import com.gildedrose.updater.quality.QualityUpdater;
 import junitparams.JUnitParamsRunner;

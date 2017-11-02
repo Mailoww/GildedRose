@@ -1,4 +1,7 @@
-package com.gildedrose.product;
+package com.gildedrose.adapter;
+
+import com.gildedrose.model.Item;
+import com.gildedrose.model.Product;
 
 import java.util.ArrayList;
 import java.util.Collection;

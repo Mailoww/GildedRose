@@ -3,7 +3,7 @@ package com.gildedrose;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.Assert.*;
 
-import com.gildedrose.product.Item;
+import com.gildedrose.model.Item;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Test;
