@@ -7,10 +7,6 @@ public class QualityUpdaterBackStagePassesProduct implements QualityUpdater {
     public static final int SELL_IN_11 = 11;
     public static final int SELL_IN_6 = 6;
 
-    public QualityUpdaterBackStagePassesProduct() {
-
-    }
-
     @Override
     public void update(Product product) {
         if(product.isExpired())

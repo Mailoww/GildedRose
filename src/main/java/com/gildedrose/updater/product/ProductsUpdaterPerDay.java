@@ -14,7 +14,7 @@ public class ProductsUpdaterPerDay implements ProductsUpdater {
     @Override
     public void update() {
         for (Product product : productRepository.getProducts()) {
-            product.decrementDay();
+            product.decrementSellIn();
             product.updateQuality();
         }
     }
