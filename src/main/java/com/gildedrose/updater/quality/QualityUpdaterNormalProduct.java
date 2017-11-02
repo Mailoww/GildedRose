@@ -1,6 +1,6 @@
 package com.gildedrose.updater.quality;
 
-import com.gildedrose.product.Product;
+import com.gildedrose.model.Product;
 
 public class QualityUpdaterNormalProduct implements QualityUpdater {
 

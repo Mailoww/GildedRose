@@ -1,14 +1,17 @@
 package com.gildedrose.updater.quality;
 
-import com.gildedrose.product.Product;
+import com.gildedrose.model.Product;
 
 public class QualityUpdaterConjuredProduct implements QualityUpdater {
 
+    public static final int NUMBER_OF_DECREMENT_WHEN_NO_EXPIRED = 2;
+    public static final int NUMBER_OF_DECREMENT_WHEN_EXPIRED = 4;
+
     @Override
     public void update(Product product) {
-        int decrementNumber = 2;
+        int decrementNumber = NUMBER_OF_DECREMENT_WHEN_NO_EXPIRED;
         if(product.isExpired())
-            decrementNumber = 4;
+            decrementNumber = NUMBER_OF_DECREMENT_WHEN_EXPIRED;
         do{
             incrementQuality(product);
         }while(--decrementNumber > 0);

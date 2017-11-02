@@ -1,4 +1,4 @@
-package com.gildedrose.product;
+package com.gildedrose.model;
 
 import com.gildedrose.updater.quality.*;
 
@@ -58,7 +58,7 @@ public class Product {
         item.quality++;
     }
 
-    public boolean hasQualityStrictlyIsUnder(int number) {
+    public boolean hasQualityStrictlyUnder(int number) {
         return item.quality < number;
     }
 

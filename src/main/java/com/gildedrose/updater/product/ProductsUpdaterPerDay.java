@@ -1,20 +1,19 @@
 package com.gildedrose.updater.product;
 
-import com.gildedrose.product.Product;
-
-import java.util.Collection;
+import com.gildedrose.model.Product;
+import com.gildedrose.repository.ProductRepository;
 
 public class ProductsUpdaterPerDay implements ProductsUpdater {
 
-    private final Collection<Product> products;
+    private final ProductRepository productRepository;
 
-    public ProductsUpdaterPerDay(Collection<Product> products) {
-        this.products = products;
+    public ProductsUpdaterPerDay(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
     @Override
     public void update() {
-        for (Product product : products) {
+        for (Product product : productRepository.getProducts()) {
             product.decrementDay();
             product.updateQuality();
         }

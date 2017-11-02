@@ -1,8 +1,10 @@
 package com.gildedrose;
 
-import com.gildedrose.product.Item;
-import com.gildedrose.product.ItemAdapterToProduct;
-import com.gildedrose.product.Product;
+import com.gildedrose.adapter.ItemAdapterToProduct;
+import com.gildedrose.model.Item;
+import com.gildedrose.model.Product;
+import com.gildedrose.repository.ProductRepository;
+import com.gildedrose.repository.ProductRepositoryInMemory;
 import com.gildedrose.updater.product.ProductsUpdaterPerDay;
 
 import java.util.Collection;
@@ -15,7 +17,8 @@ class GildedRose {
     public GildedRose(Item[] items) {
         this.items = items;
         Collection<Product> products = ItemAdapterToProduct.convertToProduct(items);
-        productsUpdater = new ProductsUpdaterPerDay(products);
+        ProductRepository productRepository = new ProductRepositoryInMemory(products);
+        productsUpdater = new ProductsUpdaterPerDay(productRepository);
     }
     public void updateQuality() {
         productsUpdater.update();

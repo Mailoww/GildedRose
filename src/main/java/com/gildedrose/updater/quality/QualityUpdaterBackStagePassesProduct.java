@@ -1,8 +1,11 @@
 package com.gildedrose.updater.quality;
 
-import com.gildedrose.product.Product;
+import com.gildedrose.model.Product;
 
 public class QualityUpdaterBackStagePassesProduct implements QualityUpdater {
+
+    public static final int SELL_IN_11 = 11;
+    public static final int SELL_IN_6 = 6;
 
     public QualityUpdaterBackStagePassesProduct() {
 
@@ -10,14 +13,18 @@ public class QualityUpdaterBackStagePassesProduct implements QualityUpdater {
 
     @Override
     public void update(Product product) {
-        if(product.hasSellInIsUnder(0))
+        if(product.isExpired())
             product.makeQualityAtZero();
 
-        else if(product.hasQualityStrictlyIsUnder(50)){
+        else if(product.hasQualityStrictlyUnder(MAXIMUM_QUALITY)){
             product.incrementQuality();
-            if (product.hasSellInIsUnder(11) && product.hasQualityStrictlyIsUnder(50))
+
+            if (product.hasSellInIsUnder(SELL_IN_11)
+                    && product.hasQualityStrictlyUnder(MAXIMUM_QUALITY))
                 product.incrementQuality();
-            if (product.hasSellInIsUnder(6) && product.hasQualityStrictlyIsUnder(50))
+
+            if (product.hasSellInIsUnder(SELL_IN_6)
+                    && product.hasQualityStrictlyUnder(MAXIMUM_QUALITY))
                 product.incrementQuality();
         }
     }
