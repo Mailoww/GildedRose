@@ -18,6 +18,7 @@ import static org.mockito.Mockito.when;
 public class ProductsUpdaterPerDayTest {
 
     @Mock
+    private
     ProductRepository productRepository;
 
     @Test
