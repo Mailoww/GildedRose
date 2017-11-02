@@ -5,6 +5,7 @@ import com.gildedrose.model.Item;
 import com.gildedrose.model.Product;
 import com.gildedrose.repository.ProductRepository;
 import com.gildedrose.repository.ProductRepositoryInMemory;
+import com.gildedrose.updater.product.ProductsUpdater;
 import com.gildedrose.updater.product.ProductsUpdaterPerDay;
 
 import java.util.Collection;
@@ -12,7 +13,8 @@ import java.util.Collection;
 class GildedRose {
 
     final Item[] items;
-    private final ProductsUpdaterPerDay productsUpdater;
+
+    private final ProductsUpdater productsUpdater;
 
     public GildedRose(Item[] items) {
         this.items = items;

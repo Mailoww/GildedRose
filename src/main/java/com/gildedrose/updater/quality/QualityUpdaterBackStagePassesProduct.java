@@ -4,12 +4,8 @@ import com.gildedrose.model.Product;
 
 public class QualityUpdaterBackStagePassesProduct implements QualityUpdater {
 
-    public static final int SELL_IN_11 = 11;
-    public static final int SELL_IN_6 = 6;
-
-    public QualityUpdaterBackStagePassesProduct() {
-
-    }
+    private static final int SELL_IN_11 = 11;
+    private static final int SELL_IN_6 = 6;
 
     @Override
     public void update(Product product) {

@@ -6,7 +6,7 @@ import java.util.Collection;
 
 public class ProductRepositoryInMemory implements ProductRepository {
 
-    private Collection<Product> products;
+    private final Collection<Product> products;
 
     public ProductRepositoryInMemory(Collection<Product> products) {
         this.products = products;

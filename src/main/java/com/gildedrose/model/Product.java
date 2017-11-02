@@ -28,7 +28,7 @@ public class Product {
         return new Product(item, new QualityUpdaterSulfurasProduct());
     }
 
-    public void decrementDay() {
+    public void decrementSellIn() {
         if (!isSulfuras()) {
             item.sellIn--;
         }

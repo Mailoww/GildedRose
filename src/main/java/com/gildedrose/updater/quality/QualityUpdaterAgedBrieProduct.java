@@ -4,10 +4,6 @@ import com.gildedrose.model.Product;
 
 public class QualityUpdaterAgedBrieProduct implements QualityUpdater {
 
-    public QualityUpdaterAgedBrieProduct() {
-
-    }
-
     @Override
     public void update(Product product) {
         if (product.hasQualityStrictlyUnder(MAXIMUM_QUALITY))
