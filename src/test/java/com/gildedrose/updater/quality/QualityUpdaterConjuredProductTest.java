@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.updater.quality;
 
 import com.gildedrose.model.Item;
 import com.gildedrose.adapter.ItemAdapterToProduct;
