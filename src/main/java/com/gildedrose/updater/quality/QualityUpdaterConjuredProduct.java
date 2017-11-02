@@ -1,5 +1,4 @@
 package com.gildedrose.updater.quality;
-
 import com.gildedrose.model.Product;
 
 public class QualityUpdaterConjuredProduct implements QualityUpdater {
